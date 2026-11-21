@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --pink: #ec4899;
+  --rose-gold: #e8b4b8;
+  --champagne: #f5d0a9;
+  --ivory: #FFFEF7;
+  --charcoal: #1f2937;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background-color: #FFFEF7;
+  color: #1f2937;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-pink-500 to-rose-500 text-white font-medium px-6 py-3 rounded-full 
+           shadow-soft hover:shadow-lg hover:from-pink-600 hover:to-rose-600 
+           transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-pink-600 border-2 border-pink-200 font-medium px-6 py-3 rounded-full
+           hover:bg-pink-50 hover:border-pink-300 transition-all duration-300;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-white text-white font-medium px-6 py-3 rounded-full
+           hover:bg-white hover:text-pink-600 transition-all duration-300;
+  }
+  
+  .card {
+    @apply bg-white rounded-2xl shadow-soft border border-pink-50 overflow-hidden
+           hover:shadow-premium transition-shadow duration-300;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl border border-pink-100 bg-white
+           focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-transparent
+           transition-all duration-200 placeholder:text-gray-400;
+  }
+  
+  .section-title {
+    @apply font-display text-3xl md:text-4xl font-semibold text-charcoal-800 mb-2;
+  }
+  
+  .section-subtitle {
+    @apply text-pink-500 font-medium tracking-wider uppercase text-sm mb-4;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-pink-500 via-rose-500 to-champagne-500 bg-clip-text text-transparent;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #fce7f3;
+}
+::-webkit-scrollbar-thumb {
+  background: #f9a8d4;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ec4899;
+}
+
+/* Toast animation */
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+.toast-enter {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* Lightbox */
+.lightbox-overlay {
+  background: rgba(0, 0, 0, 0.9);
+}
+
+/* Admin sidebar */
+.admin-sidebar {
+  transition: width 0.3s ease, transform 0.3s ease;
+}
